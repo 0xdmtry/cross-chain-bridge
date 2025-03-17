@@ -1,0 +1,19 @@
+[package]
+name = "bridge-solana-deployer"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+solana-client = "1.17.13"
+solana-sdk = "1.17.13"
+
+# Actix Web for building web applications
+actix-web = "4.4.1"
+
+# Actix RT for the runtime
+actix-rt = "2.5"
+
+# This crate is often used for shared application state or other utilities
+tokio = { version = "1", features = ["full"] }

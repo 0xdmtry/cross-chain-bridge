@@ -1,0 +1,16 @@
+[
+  {
+    "endpoint": "https://sepolia.infura.io/v3/2576bfd3226648ed833cf090c1550c9a",
+    "target": "Ethereum",
+    "chainId": 11155111,
+    "network": "Sepolia",
+    "walletKey": "f8012bcd2a02e6d9c13e5346b293b939982804997968532142e8f4af1aeaaae1",
+    "isEth": true,
+    "isCompilable": true,
+    "name": "HelloWorld",
+    "compilerPath": "http://bridge-eth-compiler:8002/v1/compile-contract",
+    "deployerPath": "http://bridge-eth-deployer:8003/v1/deploy-contract",
+    "contractPath": "../bridge-contracts/contracts/ethereum/sepolia/HelloWorld/HelloWorld.sol",
+    "outputPath": "../bridge-contracts/output/ethereum/sepolia/"
+  }
+]

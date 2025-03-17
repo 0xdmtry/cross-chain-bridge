@@ -1,0 +1,8 @@
+/target
+**/target
+**/*.log
+Dockerfile
+Dockerfile.dev
+.dockerignore
+.git
+.gitignore

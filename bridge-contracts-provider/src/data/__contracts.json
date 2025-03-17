@@ -1,0 +1,44 @@
+[
+  {
+    "endpoint": "https://sepolia.infura.io/v3/XXX",
+    "target": "Ethereum",
+    "network": "Sepolia",
+    "chainId": 11155111,
+    "walletKey": "XXX",
+    "isEth": true,
+    "isCompilable": true,
+    "name": "HelloWorld",
+    "compilerPath": "http://bridge-eth-compiler:8002/v1/compile-contract",
+    "deployerPath": "http://bridge-eth-deployer:8003/v1/deploy-contract",
+    "contractPath": "../bridge-contracts/contracts/ethereum/sepolia/HelloWorld/HelloWorld.sol",
+    "outputPath": "../bridge-contracts/output/ethereum/sepolia/"
+  },
+  {
+    "endpoint": "https://optimism-sepolia.infura.io/v3/XXX",
+    "target": "Optimism",
+    "network": "Sepolia",
+    "chainId": 11155111,
+    "walletKey": "XXX",
+    "isEth": true,
+    "isCompilable": true,
+    "name": "HelloWorld",
+    "compilerPath": "http://bridge-eth-compiler:8002/v1/compile-contract",
+    "deployerPath": "http://bridge-eth-deployer:8003/v1/deploy-contract",
+    "contractPath": "../bridge-contracts/contracts/optimism/sepolia/HelloWorld/HelloWorld.sol",
+    "outputPath": "../bridge-contracts/output/optimism/sepolia/"
+  },
+  {
+    "endpoint": "https://arbitrum-sepolia.infura.io/v3/XXX",
+    "target": "Arbitrum",
+    "network": "Sepolia",
+    "chainId": 11155111,
+    "walletKey": "XXX",
+    "isEth": true,
+    "isCompilable": true,
+    "name": "HelloWorld",
+    "compilerPath": "http://bridge-eth-compiler:8002/v1/compile-contract",
+    "deployerPath": "http://bridge-eth-deployer:8003/v1/deploy-contract",
+    "contractPath": "../bridge-contracts/contracts/arbitrum/sepolia/HelloWorld/HelloWorld.sol",
+    "outputPath": "../bridge-contracts/output/arbitrum/sepolia/"
+  }
+]

@@ -1,0 +1,102 @@
+version: '3.9'
+
+services:
+  bridge-broker:
+    build:
+      context: ..
+      dockerfile: ./bridge-broker/Broker.dev.dockerfile
+    restart: always
+    ports:
+      - "8011:8000"
+    volumes:
+      - ./../bridge-broker:/app/bridge-broker
+
+  bridge-contracts-provider:
+    build:
+      context: ..
+      dockerfile: ./bridge-contracts-provider/ContractsProvider.dev.dockerfile
+    restart: always
+    ports:
+      - "8012:8000"
+    volumes:
+      - ./../bridge-contracts-provider:/app/bridge-contracts-provider
+
+  bridge-eth-compiler:
+    build:
+      context: ..
+      dockerfile: ./bridge-eth-compiler/EthCompiler.dev.dockerfile
+    restart: always
+    platform: linux/amd64
+    ports:
+      - "8013:8000"
+    volumes:
+      - ./../bridge-eth-compiler:/app/bridge-eth-compiler
+      - ./../bridge-contracts:/app/bridge-contracts
+
+  bridge-eth-deployer:
+    build:
+      context: ..
+      dockerfile: ./bridge-eth-deployer/EthDeployer.dev.dockerfile
+    restart: always
+    ports:
+      - "8014:8000"
+    volumes:
+      - ./../bridge-eth-deployer:/app/bridge-eth-deployer
+      - ./../bridge-contracts:/app/bridge-contracts
+
+  #  bridge-solana-deployer:
+  #    build:
+  #      context: ..
+  #      dockerfile: ./bridge-solana-deployer/SolanaDeployer.dev.dockerfile
+  #    restart: always
+  #    ports:
+  #      - "8015:8000"
+  #    volumes:
+  #      - ./../bridge-solana-deployer/src:/usr/src/app/src
+
+  bridge-accounts-creator:
+    build:
+      context: ..
+      dockerfile: ./bridge-accounts-creator/Creator.dev.dockerfile
+    restart: always
+    ports:
+      - "8016:8000"
+    volumes:
+      - ./../bridge-accounts-creator:/app/bridge-accounts-creator
+
+  bridge-storage:
+    build:
+      context: ..
+      dockerfile: ./bridge-storage/Storage.dev.dockerfile
+    restart: always
+    ports:
+      - "8017:8000"
+    volumes:
+      - ./../bridge-storage:/app/bridge-storage
+    depends_on:
+      - db
+
+  bridge-funds-transporter:
+    build:
+      context: ..
+      dockerfile: ./bridge-funds-transporter/Transporter.dev.dockerfile
+    restart: always
+    ports:
+      - "8018:8000"
+    volumes:
+      - ./../bridge-funds-transporter:/app/bridge-funds-transporter
+
+  db:
+    image: mysql:8.0.32
+    restart: always
+    environment:
+      DB_PORT: 3306
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: bridge
+      MYSQL_DATABASE: bridge
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - .dbdata/mysql/:/var/lib/mysql
+    ports:
+      - "3316:3306"
